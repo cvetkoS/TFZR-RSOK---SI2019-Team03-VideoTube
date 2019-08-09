@@ -4,10 +4,12 @@ class VideoDetailsFormProvider {
         $fileInput = $this->createFileInput();
         $titleInput = $this->createTitleInput();
         $descriptionInput = $this->createDescriptionInput();
+        $privacyInput = $this->createPrivacyInput();
         return "<form action='processing.php' method='POST'>
                     $fileInput
                     $titleInput
                     $descriptionInput
+                    $privacyInput
                 </form>";
     }
 
@@ -30,7 +32,15 @@ class VideoDetailsFormProvider {
                     <textarea class='form-control' placeholder='Description' name='descriptionInput' rows='3'></textarea>
                 </div>";  
     }
-     
-}
 
+    private function createPrivacyInput() {
+        return "<div class='form-group'> 
+                    <select class='form-control' name='privacyInput'>
+                        <option value='0'>Private</option>
+                        <option value='1'>Public</option>
+                    </select>
+                </div>";  
+    }
+   
+}
 ?>
