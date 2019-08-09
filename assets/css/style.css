@@ -12,6 +12,10 @@ body {
     margin: 0;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 /* Parent of all added elements in the index.php */
 #pageContainer {
     width: 100%;
@@ -60,8 +64,9 @@ body {
     padding: 10px 30px;
 }
 
-/* Button at the top left index.php */
-#mastHeadContainer button:not(.searchButton) {
+/* Button at the top left index.php and icons on the right */
+#mastHeadContainer button:not(.searchButton),
+#mastHeadContainer .rightIcons img {
     cursor: pointer;
     width: 40px;
     height: 40px;
@@ -70,6 +75,11 @@ body {
     border: none;
     background-color: transparent;
 }
+
+#mastHeadContainer .rightIcons {
+    height: 100%;
+}
+
 #mastHeadContainer button img {
     width: 100%;
 }
