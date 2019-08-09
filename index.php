@@ -24,6 +24,10 @@
             <button class="navShowHide">
                 <img src="assets/images/icons/menu.png">
             </button>
+
+            <a href="index.php" class="logoContainer">
+                <img src="assets/images/icons/VideoTubeLogo.png" title="Site Logo" alt="Site Logo">
+            </a>
         </div>
 
         <div id="sideNavContainer" style="display: none">
@@ -39,7 +43,7 @@
         </div>
     </div>
 
-    
+
 </body>
 
 </html>
