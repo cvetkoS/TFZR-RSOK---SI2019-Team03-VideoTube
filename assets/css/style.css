@@ -1,0 +1,34 @@
+/* COLORS
+    index.php background color - #fafafa;
+    color for the bottom border - #e8e8e8
+*/
+
+/*RESET*/
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* Parent of all added elements in the index.php */
+#pageContainer {
+    width: 100%;
+    height: 100%;
+    background-color: #fafafa;
+}
+
+#mastHeadContainer {
+    width: 100%;
+    height: 56px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 7px 16px;
+    box-sizing: border-box; /* padding will not go past the screen*/
+    border-bottom: 1px solid #e8e8e8;
+    background-color: #fff;
+    z-index: 1; /* Navigation element will stay on top of all the other things*/
+    display: flex;
+    align-items: center;
+}
