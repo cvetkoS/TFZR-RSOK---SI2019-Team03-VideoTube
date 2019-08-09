@@ -59,3 +59,17 @@ body {
 #mainContentContainer {
     padding: 10px 30px;
 }
+
+/* Button at the top left index.php */
+#mastHeadContainer button {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+}
+#mastHeadContainer button img {
+    width: 100%;
+}
