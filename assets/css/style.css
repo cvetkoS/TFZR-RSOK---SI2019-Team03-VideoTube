@@ -1,6 +1,7 @@
 /* COLORS
     index.php background color - #fafafa;
     color for the bottom border - #e8e8e8
+    color for the side nav - #f5f5f5
 */
 
 /*RESET*/
@@ -17,7 +18,7 @@ body {
     height: 100%;
     background-color: #fafafa;
 }
-
+/* --------------- TOP NAV --------------- */
 #mastHeadContainer {
     width: 100%;
     height: 56px;
@@ -31,4 +32,16 @@ body {
     z-index: 1; /* Navigation element will stay on top of all the other things*/
     display: flex;
     align-items: center;
+}
+
+/* --------------- SIDE NAV --------------- */
+#sideNavContainer {
+    width: 240px;
+    background-color: #f5f5f5;
+    padding-top: 56px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
 }
