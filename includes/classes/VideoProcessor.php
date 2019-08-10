@@ -49,6 +49,11 @@ class VideoProcessor
                 return false;
             }
 
+            if (!$this->deleteFIle($tempFilePath)) {
+                echo "Upload failed";
+                return false;
+            }
+
 
 
             return true;
@@ -122,6 +127,16 @@ class VideoProcessor
             }
             return false;
         }
+        return true;
+    }
+
+    private function deleteFile($filePath) {
+        //unlink function deletes a file at the provided location
+        if(!unlink($filePath)) {
+            echo "Could not delete filse\n";
+            return false;
+        }
+
         return true;
     }
 }
