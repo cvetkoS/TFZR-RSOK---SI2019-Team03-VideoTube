@@ -4,3 +4,6 @@
 #ignore files in upload/videos/ folder
 uploads/videos/*
 
+#ignore files in upload/videos/thumbnails folder
+uploads/videos/thumbnails/*
+

@@ -54,7 +54,10 @@ class VideoProcessor
                 return false;
             }
 
-
+            if (!$this->generateThumbnails($finalFilePath)) {
+                echo "Upload failed - Could not generate thumbnails\n";
+                return false;
+            }
 
             return true;
         }
@@ -138,5 +141,73 @@ class VideoProcessor
         }
 
         return true;
+    }
+
+    public function generateThumbnails($filePath) {
+        $thumbnailSize = "210x118";
+        $numThumbnails = 3;
+        $pathToThumbnail = "uploads/videos/thumbnails";
+        
+        $duration = $this->getVideoDuration($filePath);
+
+        $videoId = $this->con->lastInsertId();
+        $this->updateDuration($duration, $videoId);
+
+        for($num = 1; $num <=$numThumbnails; $num++) {
+            $imageName = uniqid() . ".jpg";
+            $interval = ($duration * 0.8) / $numThumbnails * $num;
+            /* ($duration * 0.8) ignores first few seconds from the beginning and end of the video */
+            $fullThumbnailPath = "$pathToThumbnail/$videoId-$imageName";
+
+            $cmd = "$this->ffmpegPath -i $filePath -ss $interval -s $thumbnailSize -vframes 1 $fullThumbnailPath 2>&1";
+
+            $outputLog = array();
+            exec($cmd, $outputLog, $returnCode);
+
+            if($returnCode != 0) {
+                //Command failed
+                foreach($outputLog as $line) {
+                    echo $line . "<br />";
+                }
+            }
+            $selected = $num == 1 ? 1 : 0;
+
+            $query = $this->con->prepare("INSERT INTO thumbnails(videoId, filePath, selected)
+                                        VALUES(:videoId, :filePath, :selected)");
+            $query->bindParam(":videoId", $videoId);
+            $query->bindParam(":filePath", $fullThumbnailPath);
+            $query->bindParam(":selected", $selected);
+
+            $success = $query->execute();
+
+            if(!$success) {
+                echo "Error inserting thumbnail \n";
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private function getVideoDuration($filePath) {
+        return (int)shell_exec("$this->ffprobePath -v error -select_streams v:0 -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 $filePath");
+    }
+
+    private function updateDuration($duration, $videoId) {
+        $hours = floor($duration / 3600);
+        $mins = floor(($duration - ($hours/3600)) / 60); //takes away all hours that are in.
+        $secs = floor($duration % 60); //moduo, all that's left from the duration
+
+        $hours = ($hours < 1) ? "" : $hours . ":";
+        $mins = ($hours < 10) ? "0" . $mins . ":" : $mins . ":"; //if less then 10 secs append 0 in front
+        $secs = ($secs < 10) ? "0" . $secs : $secs;
+
+        $duration = $hours.$mins.$secs;
+
+        $query = $this->con->prepare("UPDATE videos SET duration=:duration WHERE id=:videoId");
+
+        $query->bindParam(":duration", $duration);
+        $query->bindParam(":videoId", $videoId);
+
+        $query->execute();
     }
 }
