@@ -2,7 +2,7 @@
 .vscode/
 
 #ignore files in upload/videos/ folder
-uploads/videos/*
+uploads/videos/*.mp4
 
 #ignore files in upload/videos/thumbnails folder
 uploads/videos/thumbnails/*
