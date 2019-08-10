@@ -23,19 +23,29 @@
         <div class="column">
             <div class="header">
                  <img src="assets/images/icons/VideoTubeLogo.png" title="Site Logo" alt="Site Logo">
-                 <h3>Sign In</h3>
+                 <h3>Sign Up</h3>
                  <span>to continiue to VideoTube</span>
             </div>
             <div class="loginForm">
-                <form action="signIn.php">
-                    <input type="text" name="username" placeholder="Username" required autocomplete="off">
+                <form action="signUp.php" method="POST">
+                    <input type="text" name="firstname" placeholder="First Name" required>
+                    <input type="text" name="lasttname" placeholder="Last Name" required>
+                    <input type="text" name="username" placeholder="Username" required>
+
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="email" name="email2" placeholder="Confirm Email" required>
+                    
                     <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" name="password2" placeholder="Confirm Password" required>
+
                     <input type="submit" name="submitButton" value="SUBMIT">
                 </form>
+                
+
                     
             </div>
 
-            <a class="signInMessage" href="signUp.php">Need an account? Sign up here!</a>
+            <a class="signInMessage" href="signIn.php">Already have an account? Sign in here!</a>
         </div>
     </div>
 </body>
