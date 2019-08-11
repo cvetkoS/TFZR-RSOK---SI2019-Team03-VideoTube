@@ -2,7 +2,8 @@
 
 <?php
 if(isset($_SESSION["userLoggedIn"])) {
-    echo "user is logged in as " . $_SESSION["userLoggedIn"];
+    //userLoggedInObj variable is comming from header.php
+    echo "user is logged in as " . $userLoggedInObj->getUsername();
 }
 else {
     echo "not logged in";
