@@ -1,4 +1,6 @@
-<?php require_once("includes/header.php"); 
+<?php
+require_once("includes/header.php");
+require_once("includes/classes/Video.php"); 
 
 //taking the value from the URL
 if(!isset($_GET["id"])) {
@@ -6,6 +8,8 @@ if(!isset($_GET["id"])) {
     exit();
 } 
 
+$video = new Video($con, $_GET["id"], $userLoggedInObj);
+$video->incrementViews();
 ?>
 
 
