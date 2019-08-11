@@ -6,7 +6,6 @@ require_once("includes/classes/Account.php");
 require_once("includes/classes/Constants.php");
 
 $account = new Account($con);
-echo hash("sha512","password");
 
 if(isset($_POST["submitButton"])) {
     $firstName = FormSanitizer::sanitizeFormString($_POST["firstName"]); 

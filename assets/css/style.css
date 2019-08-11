@@ -225,3 +225,20 @@ a:hover {
     font-weight: 400;
     text-align: center;
 }
+
+/* --------------- VIDEO PLAYER --------------- */
+.watchLeftColumn {
+    flex: 1;
+}
+
+.watchLeftColumn .videoPlayer {
+    width: 100%;
+}
+
+/* --------------- SUGGESTIONS ----------------- */
+.suggestions {
+    max-width: 425px;
+    flex-grow: 1;
+    height: 100%;
+    padding-left: 24px;
+}
