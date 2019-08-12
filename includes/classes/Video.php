@@ -98,6 +98,7 @@ class Video {
     public function like() {
         $id = $this->getId();
         $username = $this->userLoggedInObj->getUsername();
+        
 
         $query = $this->con->prepare("SELECT * FROM likes WHERE username=:username AND videoId=:videoId");
         $query->bindParam(":username", $username);
@@ -109,6 +110,12 @@ class Video {
             $query->bindParam(":username", $username);
             $query->bindParam(":videoId", $id);
             $query->execute();
+
+            $result = array(
+                "likes" => -1,
+                "dislikes" => 0, //nothing to change
+            );
+            return json_encode($result);
         }
         else {
             $query = $this->con->prepare("DELETE FROM dislikes WHERE username=:username AND videoId=:videoId");
