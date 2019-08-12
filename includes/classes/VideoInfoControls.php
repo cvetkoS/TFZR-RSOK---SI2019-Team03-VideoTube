@@ -9,6 +9,7 @@ require_once("includes/classes/ButtonProvider.php");
         }
 
 /* ------------- Creating like/dislike buttons ---------------*/ 
+
         public function create() {
 
             $likeButton = $this->createLikeButton();
