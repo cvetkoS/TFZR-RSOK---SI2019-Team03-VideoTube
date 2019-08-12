@@ -34,7 +34,14 @@ require_once("includes/classes/ButtonProvider.php");
         }
 
         private function createDislikeButton(){
-            return "<button>Dislike</button>";
+            $text = $this->video->getDislikes();
+            $videoId = $this->video->getId();       //used for actions
+            $action = "dislikeVideo(this, $videoId)";  //this-for button that is pressed
+            $class = "dislikeButton";
+
+            $imageSrc = "assets/images/icons/thumb-down.png";
+
+            return ButtonProvider::createButton($text, $imageSrc, $action, $class); //static
         }
     }
 ?>
