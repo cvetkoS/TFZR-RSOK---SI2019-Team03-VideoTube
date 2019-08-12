@@ -21,7 +21,15 @@ require_once("includes/classes/ButtonProvider.php");
         }
 
         private function createLikeButton(){
-            return ButtonProvider::createButton("Like", "", "", ""); //static
+            $text = $this->video->getLikes();
+            $videoId = $this->video->getId();       //used for actions
+            $action = "likeVideo(this, $videoId)";  //this-for button that is pressed
+            $class = "likeButton";
+
+            $imageSrc = "assets/images/icons/thumb-up.png";
+
+            return ButtonProvider::createButton($text, $imageSrc, $action, $class); //static
+
         }
 
         private function createDislikeButton(){
