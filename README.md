@@ -3,4 +3,4 @@ Projekat iz predmeta “Razvoj softvera otvorenog koda”, naziv rada jeste “V
 Korisnici će moći da se subscribe-uju na kanal drugog korisnika, samim tim da prate klipove koji oni izbace na kanal. 
 
 
-Na projektu rade: Dragana Vukomanović Gajin – SI 34/16, Ana Tasić - SI 00/16, Vlada Vlajić - SI 25/16 i Cvetko Stević - SI 20/16.
+Na projektu rade: Dragana Vukomanović Gajin – SI 34/16, Ana Tasić - SI 00/16, Vlada Vlajić - SI 25/16 i Cvetko Stević - SI 20/16..
