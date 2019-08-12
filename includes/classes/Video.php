@@ -94,6 +94,10 @@ class Video {
         $data = $query->fetch(PDO::FETCH_ASSOC);   //checking the result
         return $data["count"];
     }
+
+    public function like() {
+        return "good work!";
+    }
 }
 
 
