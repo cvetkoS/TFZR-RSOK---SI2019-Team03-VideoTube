@@ -1,4 +1,7 @@
 function likeVideo(button, videoId) {
-    
-    alert("button was pressed");    
+    $.post("ajax/likeVideo.php")
+    .done(function(data) {
+        alert(data);
+
+    });  
 }
