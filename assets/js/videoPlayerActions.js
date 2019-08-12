@@ -10,7 +10,17 @@ function likeVideo(button, videoId) {
 
         var result = JSON.parse(data);  //take a json string, and pass it to a json object
         updateLikesValue(likeButton.find(".text"), result.likes);
-        updateDislikesValue(dislikeButton.find(".text"), result.dislikes);
+        updateLikesValue(dislikeButton.find(".text"), result.dislikes);
+
+        if(result.likes < 0){
+            likeButton.removeClass("active");
+            likeButton.find("img:first").attr("src", "assets/images/icons/thumb-up.png")
+        }
+        else{
+            likeButton.find("img:first").attr("src", "assets/images/icons/thumb-up-active.png") 
+        }
+
+        dislikeButton.find("img:first").attr("src", "assets/images/icons/thumb-down.png")
     });  
 }
 

@@ -29,6 +29,10 @@ require_once("includes/classes/ButtonProvider.php");
 
             $imageSrc = "assets/images/icons/thumb-up.png";
 
+            if($this->video->wasLikedBy()) {
+                $imageSrc = "assets/images/icons/thumb-up-active.png";  
+            }
+
             return ButtonProvider::createButton($text, $imageSrc, $action, $class); //static
 
         }
