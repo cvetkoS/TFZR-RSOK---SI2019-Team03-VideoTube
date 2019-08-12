@@ -19,7 +19,7 @@ require_once("includes/classes/ButtonProvider.php");
                         $dislikeButton 
                     </div>";
         }
-
+        
         private function createLikeButton(){
             $text = $this->video->getLikes();
             $videoId = $this->video->getId();       //used for actions

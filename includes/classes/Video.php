@@ -1,10 +1,11 @@
 <?php
+
 class Video {
 
     private $con;
     private $sqlData; //All the data for this video
     private $userLoggedInObj;
-
+    
     public function __construct($con, $input, $userLoggedInObj)
     {
         $this->con = $con;
@@ -73,20 +74,21 @@ class Video {
         $this->sqlData["views"] = $this->sqlData["views"] + 1;
     }
 
-    public function getLikes(){     //returns the number of likes
+    public function getLikes() {     //returns the number of likes
+        $videoId = $this->getId();
         $query = $this->con->prepare("SELECT count(*) as 'count' FROM likes WHERE videoId = :videoId");
         $query->bindParam(":videoId", $videoId);
-        $videoId = $this->getId();
+        
         $query->execute();
 
         $data = $query->fetch(PDO::FETCH_ASSOC);   //checking the result
         return $data["count"];
     }
 
-    public function getDislikes(){     //returns the number of likes
+    public function getDislikes() {     
+        $videoId = $this->getId();
         $query = $this->con->prepare("SELECT count(*) as 'count' FROM dislikes WHERE videoId = :videoId");
         $query->bindParam(":videoId", $videoId);
-        $videoId = $this->getId();
         $query->execute();
 
         $data = $query->fetch(PDO::FETCH_ASSOC);   //checking the result
