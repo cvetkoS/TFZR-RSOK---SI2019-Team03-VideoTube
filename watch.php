@@ -1,6 +1,7 @@
 <?php
 require_once("includes/header.php");
 require_once("includes/classes/VideoPlayer.php"); 
+require_once("includes/classes/VideoInfoSection.php");
 
 
 //taking the value from the URL
@@ -19,6 +20,9 @@ $video->incrementViews();
 <?php
     $videoPlayer = new VideoPlayer($video);
     echo $videoPlayer->create(true); //autoplay is set to true
+
+    $videoPlayer = new VideoInfoSection($con, $video, $userLoggedInObj);
+    echo $videoPlayer->create(); 
 ?>
 
 
