@@ -1,9 +1,3 @@
-#ignore folder named '.vscode'
-.vscode/
-
-#ignore files in upload/videos/ folder
-uploads/videos/*.mp4
-
-#ignore files in upload/videos/thumbnails folder
-uploads/videos/thumbnails/*
+*.mp4
+*.jpg
 
