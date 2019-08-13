@@ -12,16 +12,43 @@ function likeVideo(button, videoId) {
         updateLikesValue(likeButton.find(".text"), result.likes);
         updateLikesValue(dislikeButton.find(".text"), result.dislikes);
 
-        if(result.likes < 0){
+        if(result.likes < 0) {
             likeButton.removeClass("active");
-            likeButton.find("img:first").attr("src", "assets/images/icons/thumb-up.png")
+            likeButton.find("img:first").attr("src", "assets/images/icons/thumb-up.png");
         }
         else{
-            likeButton.find("img:first").attr("src", "assets/images/icons/thumb-up-active.png") 
+            likeButton.find("img:first").attr("src", "assets/images/icons/thumb-up-active.png");
         }
 
-        dislikeButton.find("img:first").attr("src", "assets/images/icons/thumb-down.png")
+        dislikeButton.find("img:first").attr("src", "assets/images/icons/thumb-down.png");
     });  
+}
+
+function dislikeVideo(button, videoId) {
+    $.post("ajax/dislikeVideo.php", {videoId: videoId})
+    .done(function(data) {
+
+        var dislikeButton = $(button);
+        var likeButton = $(button).siblings(".likeButton");
+
+        dislikeButton.addClass("active");
+        likeButton.removeClass("active");
+
+        var result = JSON.parse(data);  //take a json string, and pass it to a json object
+        updateLikesValue(likeButton.find(".text"), result.likes);
+        updateLikesValue(dislikeButton.find(".text"), result.dislikes);
+
+        if(result.dislikes < 0) {
+            dislikeButton.removeClass("active");
+            dislikeButton.find("img:first").attr("src", "assets/images/icons/thumb-down.png");
+        }
+        else{
+            dislikeButton.find("img:first").attr("src", "assets/images/icons/thumb-down-active.png");
+        }
+
+        likeButton.find("img:first").attr("src", "assets/images/icons/thumb-up.png");
+    }); 
+    
 }
 
 function updateLikesValue(element, num) {

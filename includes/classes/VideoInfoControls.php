@@ -45,6 +45,10 @@ require_once("includes/classes/ButtonProvider.php");
 
             $imageSrc = "assets/images/icons/thumb-down.png";
 
+            if($this->video->wasDislikedBy()) {
+                $imageSrc = "assets/images/icons/thumb-down-active.png";  
+            }
+
             return ButtonProvider::createButton($text, $imageSrc, $action, $class); //static
         }
     }
