@@ -11,8 +11,10 @@ function postComment(button, postedBy, videoId, replayTo, containerClass) {
                 videoId: videoId,
                 responseTo: replayTo
             })
-            .done(function (data) {
-                alert(data);
+            .done(function (comment) {
+
+                $("." + containerClass).prepend(comment);
+
             });
 
     } else {
