@@ -44,7 +44,7 @@ class CommentControls
 
         if ($text == 0) $text = "";
 
-        return "<span class='likesCount'>$text</span>";
+        return "<span class='likesCount'>15</span>";
     }
     private function createReplySection()
     {
