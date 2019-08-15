@@ -22,6 +22,7 @@ a:hover {
     height: 100%;
     background-color: #fafafa;
 }
+
 /* --------------- TOP NAV --------------- */
 #mastHeadContainer {
     width: 100%;
@@ -30,10 +31,12 @@ a:hover {
     top: 0;
     left: 0;
     padding: 7px 16px;
-    box-sizing: border-box; /* padding will not go past the screen*/
+    box-sizing: border-box;
+    /* padding will not go past the screen*/
     border-bottom: 1px solid #e8e8e8;
     background-color: #fff;
-    z-index: 1; /* Navigation element will stay on top of all the other things*/
+    z-index: 1;
+    /* Navigation element will stay on top of all the other things*/
     display: flex;
     align-items: center;
 }
@@ -64,8 +67,8 @@ a:hover {
     padding: 10px 30px;
     display: flex;
     flex: 1;
-    
-    
+
+
 }
 
 /* Button at the top left index.php and icons on the right */
@@ -197,7 +200,7 @@ a:hover {
 .signInContainer .column form input[type="password"] {
     font-size: 14px;
     margin: 10px 0;
-    border:  none;
+    border: none;
     border-bottom: 1px solid #dedede;
 }
 
@@ -243,13 +246,13 @@ a:hover {
     padding-left: 24px;
 }
 
-/* --------------- Video Information -----------------*/ 
+/* --------------- Video Information -----------------*/
 .videoInfo {
     width: 100%;
     padding: 20px 0 8px 0;
 }
 
-.videoInfo h1{
+.videoInfo h1 {
     display: block;
     overflow: hidden;
     font-size: 18px;
@@ -272,7 +275,7 @@ a:hover {
     text-align: right;
 }
 
- /*--------------- Like buttons -----------------*/ 
+/*--------------- Like buttons -----------------*/
 .videoInfo .bottomSection .controls button {
     padding: 0;
     background-color: transparent;
@@ -289,7 +292,7 @@ a:hover {
     margin: 4px 8px 8px 8px;
 }
 
-/*--------------- Description of Video-----------------*/ 
+/*--------------- Description of Video-----------------*/
 .secondaryInfo .topRow {
     display: flex;
     margin-bottom: 12px;
@@ -342,8 +345,7 @@ a:hover {
     font-size: 14px;
 }
 
-.secondaryInfo .topRow .subscribeButtonContainer
-.secondaryInfo .topRow .editVideoButtonContainer {
+.secondaryInfo .topRow .subscribeButtonContainer .secondaryInfo .topRow .editVideoButtonContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -353,6 +355,7 @@ a:hover {
     background-color: #f00;
     color: #fff;
 }
+
 .subscribeButtonContainer .unsubscribe {
     background-color: #eee;
     color: rgba(17, 17, 17, 0.6);
@@ -363,8 +366,51 @@ a:hover {
     color: #fff;
 }
 
-.secondaryInfo .topRow .uploadInfo .owner a{
+.secondaryInfo .topRow .uploadInfo .owner a {
     font-size: 14px;
     font-weight: 500;
     color: #000;
+}
+
+/*--------------- Comment section-----------------*/
+.commentSection .header {
+    margin-top: 24px;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.commentSection .header .commentForm .profilePicture {
+    margin-right: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.commentSection .header a {
+    margin-bottom: 24px;
+}
+
+.commentSection .header .commentForm {
+    display: flex;
+}
+
+.commentSection .header .commentForm textarea {
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #111;
+    resize: none;
+
+}
+
+.commentSection .header .commentForm .postComment {
+    height: 36px;
+    background-color: #2692e6;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    padding: 0 15px;
+    border-radius: 2px;
 }
