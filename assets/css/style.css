@@ -22,6 +22,7 @@ a:hover {
     height: 100%;
     background-color: #fafafa;
 }
+
 /* --------------- TOP NAV --------------- */
 #mastHeadContainer {
     width: 100%;
@@ -30,10 +31,12 @@ a:hover {
     top: 0;
     left: 0;
     padding: 7px 16px;
-    box-sizing: border-box; /* padding will not go past the screen*/
+    box-sizing: border-box;
+    /* padding will not go past the screen*/
     border-bottom: 1px solid #e8e8e8;
     background-color: #fff;
-    z-index: 1; /* Navigation element will stay on top of all the other things*/
+    z-index: 1;
+    /* Navigation element will stay on top of all the other things*/
     display: flex;
     align-items: center;
 }
@@ -64,8 +67,10 @@ a:hover {
     padding: 10px 30px;
     display: flex;
     flex: 1;
-    
-    
+    background-color: #fafafa;
+    box-sizing: border-box;
+
+
 }
 
 /* Button at the top left index.php and icons on the right */
@@ -197,7 +202,7 @@ a:hover {
 .signInContainer .column form input[type="password"] {
     font-size: 14px;
     margin: 10px 0;
-    border:  none;
+    border: none;
     border-bottom: 1px solid #dedede;
 }
 
@@ -243,13 +248,13 @@ a:hover {
     padding-left: 24px;
 }
 
-/* --------------- Video Information -----------------*/ 
+/* --------------- Video Information -----------------*/
 .videoInfo {
     width: 100%;
     padding: 20px 0 8px 0;
 }
 
-.videoInfo h1{
+.videoInfo h1 {
     display: block;
     overflow: hidden;
     font-size: 18px;
@@ -272,7 +277,7 @@ a:hover {
     text-align: right;
 }
 
- /*--------------- Like buttons -----------------*/ 
+/*--------------- Like buttons -----------------*/
 .videoInfo .bottomSection .controls button {
     padding: 0;
     background-color: transparent;
@@ -289,7 +294,7 @@ a:hover {
     margin: 4px 8px 8px 8px;
 }
 
-/*--------------- Description of Video-----------------*/ 
+/*--------------- Description of Video-----------------*/
 .secondaryInfo .topRow {
     display: flex;
     margin-bottom: 12px;
@@ -342,8 +347,7 @@ a:hover {
     font-size: 14px;
 }
 
-.secondaryInfo .topRow .subscribeButtonContainer
-.secondaryInfo .topRow .editVideoButtonContainer {
+.secondaryInfo .topRow .subscribeButtonContainer .secondaryInfo .topRow .editVideoButtonContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -353,6 +357,7 @@ a:hover {
     background-color: #f00;
     color: #fff;
 }
+
 .subscribeButtonContainer .unsubscribe {
     background-color: #eee;
     color: rgba(17, 17, 17, 0.6);
@@ -363,8 +368,148 @@ a:hover {
     color: #fff;
 }
 
-.secondaryInfo .topRow .uploadInfo .owner a{
+.secondaryInfo .topRow .uploadInfo .owner a {
     font-size: 14px;
     font-weight: 500;
     color: #000;
+}
+
+/*--------------- Comment section-----------------*/
+.commentSection .header {
+    margin-top: 24px;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.commentSection .header .commentForm .profilePicture,
+.commentSection .comment .profilePicture,
+.commentForm .profilePicture {
+    margin-right: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.commentSection .header a {
+    margin-bottom: 24px;
+}
+
+.commentSection .header .commentForm,
+.itemContainer .commentForm {
+    display: flex;
+}
+
+.commentSection .header .commentForm textarea,
+.itemContainer .commentForm textarea {
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #111;
+    resize: none;
+
+}
+
+.itemContainer .commentForm textarea {
+    height: 30px;
+}
+
+.commentSection .header .commentForm .postComment,
+.itemContainer .commentForm .postComment,
+.itemContainer .commentForm .cancelComment {
+    height: 36px;
+    background-color: #2692e6;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    padding: 0 15px;
+    border-radius: 2px;
+}
+
+.itemContainer .commentForm .cancelComment {
+    background-color: transparent;
+    color: rgba(17, 17, 17, 0.6);
+}
+
+.itemContainer .commentForm .cancelComment:hover {
+    color: #000;
+}
+
+.commentSection .itemContainer {
+    margin-bottom: 16px;
+}
+
+.commentSection .comment {
+    display: flex;
+}
+
+.commentSection .commentHeader {
+    margin-bottom: 2px;
+}
+
+.commentSection .comment .username {
+    margin-right: 8px;
+    color: #111;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.commentSection .comment .body {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.itemContainer .controls {
+    margin-left: 64px;
+}
+
+.itemContainer .controls button,
+.itemContainer .controls .likesCount {
+    height: 32px;
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(17, 17, 17, 0.6);
+}
+
+.itemContainer .controls button {
+    cursor: pointer;
+}
+
+.itemContainer .controls .likesCount {
+    margin: 0 5px;
+}
+
+.itemContainer .controls button img {
+    height: 16px;
+}
+
+.itemContainer .commentForm .profilePicture {
+    width: 30px;
+    height: 30px;
+}
+
+.commentSection .comment .timestamp {
+    color: #888;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.comments .repliesSection {
+    padding-left: 64px;
+    margin-top: 16px;
+}
+
+.commentSection .itemContainer .viewReplies {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
 }
