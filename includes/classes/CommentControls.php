@@ -44,7 +44,7 @@ class CommentControls
 
         if ($text == 0) $text = "";
 
-        return "<span class='likesCount'>15</span>";
+        return "<span class='likesCount'></span>";
     }
     private function createReplySection()
     {
@@ -54,7 +54,7 @@ class CommentControls
 
         $profileButton = ButtonProvider::createUserProfileButton($this->con, $postedBy);
 
-        $cancelButtonAction = "toggleReplay(this)";
+        $cancelButtonAction = "toggleReply(this)";
         $cancelButton = ButtonProvider::createButton("Cancel", null, $cancelButtonAction, "cancelComment");
 
         $postButtonAction = "postComment(this, \"$postedBy\", $videoId, $commentId, \"repliesSection\")";
