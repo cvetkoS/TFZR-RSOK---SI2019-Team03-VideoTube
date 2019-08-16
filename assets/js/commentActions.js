@@ -13,7 +13,14 @@ function postComment(button, postedBy, videoId, replayTo, containerClass) {
             })
             .done(function (comment) {
 
-                $("." + containerClass).prepend(comment);
+                if (!replayTo) {
+
+                    $("." + containerClass).prepend(comment);
+                } else {
+                    $(button).parent().siblings("." + containerClass).append(comment);
+                }
+
+
 
             });
 
@@ -88,4 +95,18 @@ function dislikeComment(commentId, button, videoId) {
 function updateLikesValue(element, num) {
     var likesCountVal = element.text() || 0;
     element.text(parseInt(likesCountVal) + parseInt(num));
+}
+
+function getReplies(commentId, button, videoId) {
+    $.post("ajax/getCommentReplies.php", {
+            commentId: commentId,
+            videoId: videoId
+        })
+        .done(function (comments) {
+            var replies = $("<div>").addClass("repliesSection");
+            replies.append(comments);
+
+            $(button).replaceWith(replies);
+
+        });
 }

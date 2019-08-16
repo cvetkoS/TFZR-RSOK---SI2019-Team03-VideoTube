@@ -7,6 +7,8 @@ require_once("includes/classes/Comment.php");
 
 
 
+
+
 //taking the value from the URL
 if (!isset($_GET["id"])) {
     echo "No URL passed into page";
