@@ -29,7 +29,7 @@ class VideoGridItem
 
         return "<div class='thumbnail'>
                     <img src='$thumbnail'>
-                    <div class = 'duraation'>
+                    <div class='duration'>
                         <span>$duration</span>
                     </div>
                 </div>";
@@ -45,7 +45,7 @@ class VideoGridItem
         return "<div class='details'>
                     <h3 class='title'>$title</h3>
                     <span class='username'>$username</span>
-                    <div class='status'>
+                    <div class='stats'>
                         <span class='viewCount'>$views views - </span>
                         <span class='timeStamp'>$timestamp</span>
                     </div>
