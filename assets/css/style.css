@@ -660,3 +660,39 @@ a:hover {
 .videoGridHeader a:last-child:after {
     content: ''
 }
+
+.signInLink {
+    color: #f00;
+    margin-left: 15px;
+}
+
+#sideNavContainer .navigationItems {
+    overflow-y: auto;
+}
+
+#sideNavContainer .navigationItem {
+    height: 40px;
+    display: flex;
+}
+
+#sideNavContainer .navigationItem img {
+    height: 18px;
+    margin-right: 27px;
+}
+
+#sideNavContainer .navigationItem span {
+    flex: 1;
+    color: #111;
+    font-size: 14px;
+}
+
+#sideNavContainer .navigationItem a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+}
+
+#sideNavContainer .navigationItem a:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
