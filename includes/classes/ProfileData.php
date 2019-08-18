@@ -52,8 +52,24 @@ class ProfileData {
             $videos[] = new Video($this->con, $row, $this->profileUserObj->getUsername());
         }
         return $videos;
+    }
 
+    public function getAllUserDetails(){
+        return array(               
+            "Name" => $this->getProfileUserFullName(),
+            "Username" => $this->getProfileUsername(),
+            "Subscribers" => $this->getSubscriberCount(),
+            "Total views" => $this->getTotalViews(),
+            "Sign up date" => $this->getSignUpDate()
+        );     
+    }
 
+    private function getTotalViews() {
+        return "TEST";
+    }
+
+    private function getSignUpDate() {
+        return "TEST 2";
     }
 }
 ?>
