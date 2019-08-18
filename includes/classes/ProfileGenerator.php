@@ -6,7 +6,7 @@ class ProfileGenerator {
 
     public function __construct($con, $userLoggedInObj, $profileUsername) {
         $this->con = $con;
-        $this->userLoggedInObjn = $userLoggedInObj;
+        $this->userLoggedInObj = $userLoggedInObj;
         $this->profileData = new ProfileData($con, $profileUsername);
     }
 
@@ -31,7 +31,7 @@ class ProfileGenerator {
 
     public function createCoverPhotoSection() {
         $coverPhotoSrc = $this->profileData->getCoverPhoto();
-        $name = $this->profileData->getProfileUserFullName(); //function call
+        $name = $this->profileData->getProfileUserFullName();
         return "<div class='coverPhotoContainer'>
                     <img src='$coverPhotoSrc' class='coverPhoto'>
                     <span class='channelName'>$name</span>
@@ -39,11 +39,13 @@ class ProfileGenerator {
     }
 
     public function createHeaderSection() {
-         $profileImage = $this->profileData->getProfilePic();
-         $name = $this->profileData->getProfileUserFullName();
-         $subCount = $this->profileData->getSubscriberCount();
+        $profileImage = $this->profileData->getProfilePic();
+        $name = $this->profileData->getProfileUserFullName();
+        $subCount = $this->profileData->getSubscriberCount();
 
-         return "<div class='profileHeader'>
+        $button = $this->createHeaderButton();
+
+        return "<div class='profileHeader'>
                     <div class='userInfoContainer'>
                         <img class='profileImage' src='$profileImage'>
                         <div class='userInfo'>
@@ -53,7 +55,9 @@ class ProfileGenerator {
                     </div>
 
                     <div class='buttonContainer'>
-
+                        <div class='buttonItem'>    
+                            $button
+                        </div>
                     </div>
                 </div>";
     }
@@ -64,6 +68,18 @@ class ProfileGenerator {
 
     public function createContentSection() {
         
+    }
+
+    private function createHeaderButton() {
+        if($this->userLoggedInObj->getUsername() == $this->profileData->getProfileUsername()) {
+            return "";
+        }
+        else {
+            return ButtonProvider::createSubscriberButton(
+                        $this->con, 
+                        $this->profileData->getProfileUserObj(),
+                        $this->userLoggedInObj);
+        }
     }
 }
 ?>
