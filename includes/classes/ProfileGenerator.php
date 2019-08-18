@@ -12,7 +12,10 @@ class ProfileGenerator {
 
     public function create() {
         $profileUsername = $this->profileData->getProfileUsername();
-        echo $profileUsername;
+        
+        if(!$this->profileData->userExists()) {
+            return "User does not exist";
+        }
     }
 }
 ?>
