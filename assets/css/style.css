@@ -706,3 +706,34 @@ a:hover {
     border-top: 1px solid #ededed;
     display: block;
 }
+
+/*--------------- Profile page-----------------*/
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.coverPhotoContainer {
+    height: 200px;
+    flex: 1;
+    position: relative;
+}
+
+.coverPhotoContainer .coverPhoto {
+    width: 100%;
+    object-fit: cover;
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+.coverPhotoContainer .channelName {
+    position: absolute;
+    top: calc(50% - 40px);
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 5px;    
+}
+

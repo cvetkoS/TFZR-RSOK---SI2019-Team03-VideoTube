@@ -31,7 +31,11 @@ class ProfileGenerator {
 
     public function createCoverPhotoSection() {
         $coverPhotoSrc = $this->profileData->getCoverPhoto();
-        echo $coverPhotoSrc;
+        $name = $this->profileData->getProfileUserFullName(); //function call
+        return "<div class='coverPhotoContainer'>
+                    <img src='$coverPhotoSrc' class='coverPhoto'>
+                    <span class='channelName'>$name</span>
+                </div>";
     }
 
     public function createHeaderSection() {
