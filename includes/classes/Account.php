@@ -59,6 +59,37 @@ class Account {
         }
     }
 
+    public function updatePassword($oldPw, $pw, $pw2, $un) {
+        $this->validateOldPassword($oldPw, $un);
+        $this->validatePasswords($pw, $pw2);
+        
+        if(empty($this->errorArray)) {
+            $query = $this->con->prepare("UPDATE users SET password=:pw WHERE username=:un");
+            $pw = hash("sha512", $pw);
+            $query->bindParam(":pw", $pw);            
+            $query->bindParam(":un", $un);
+
+            return $query->execute();
+        }
+        else {
+            return false;
+        }
+    }
+
+    private function validateOldPassword($oldPw, $un) {
+        $pw = hash("sha512", $oldPw);
+
+        $query = $this->con->prepare("SELECT * FROM users WHERE username=:un AND password=:pw");
+        $query->bindParam(":un",$un);
+        $query->bindParam(":pw",$pw);
+
+        $query->execute();
+
+        if($query->rowCount() == 0) {
+            array_push($this->errorArray, Constants::$passwordIncorrect);
+        }
+    }
+
     public function insertUserDetails($fn, $ln, $un, $em, $pw) {  //Inserting data into DB
         
         $pw = hash("sha512", $pw);
