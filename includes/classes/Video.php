@@ -218,11 +218,11 @@ class Video
     }
     public function getNumberOfComments()
     {
+        $id = $this->getId();
         $query = $this->con->prepare("SELECT * FROM comments WHERE videoId=:videoId");
         $query->bindParam(":videoId", $id);
 
-        $id = $this->getId();
-
+        
         $query->execute();
 
         return $query->rowCount();
@@ -230,11 +230,11 @@ class Video
 
     public function getComments()
     {
+        $id = $this->getId();
         $query = $this->con->prepare("SELECT * FROM comments WHERE videoId=:videoId AND responseTo=0 ORDER BY datePosted DESC");
         $query->bindParam(":videoId", $id);
 
-        $id = $this->getId();
-
+       
         $query->execute();
 
         $comments = array();
@@ -248,9 +248,10 @@ class Video
 
     public function getThumbnail()
     {
+        $videoId = $this->getId();
         $query = $this->con->prepare("SELECT filePath FROM thumbnails WHERE videoId=:videoId AND selected=1");
         $query->bindParam(":videoId", $videoId);
-        $videoId = $this->getId();
+        
         $query->execute();
 
         return $query->fetchColumn();
