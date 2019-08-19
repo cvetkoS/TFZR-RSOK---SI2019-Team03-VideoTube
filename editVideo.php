@@ -23,6 +23,28 @@ if($video->getUploadedBy() !=$userLoggedInObj->getUsername()) {
     echo "Not your video";
     exit();
 }
+
+if(isset($_POST["saveButton"])) {
+    $videoData = new VideoUpdateData(    
+        null,                      //from VideoUploadData constructor
+        $_POST["titleInput"],
+        $_POST["descriptionInput"],
+        $_POST["privacyInput"],
+        $_POST["categoryInput"],
+        $userLoggedInObj->getUsername()
+    );
+
+    if($videoData->updateDetails($con, $videoId)) {
+        $detailsMessage = "<div class='alert alert-success'>
+                            <strong>SUCCESS!</strong> Details updated successfully!
+                            </div>";                            
+    }
+    else {    
+        $detailsMessage = "<div class='alert alert-danger'>
+                            <strong>ERROR!</strong> Something went wrong
+                            </div>";   
+    }
+}
 ?>
 <script src="assets/js/editVideoActions.js"></script>
 <div class="editVideoContainer column">
