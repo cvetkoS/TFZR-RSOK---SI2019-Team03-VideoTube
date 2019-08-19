@@ -10,6 +10,19 @@ if(!User::isLoggedIn()) {
 }
 
 $formProvider = new SettingsFormProvider();
+
+if (isset($_POST["saveDetailsButton"])) {
+    $account = new Account($con);
+    $firstName = FormSanitizer::sanitizeFormString($_POST["firstName"]);
+    $lastName = FormSanitizer::sanitizeFormString($_POST["lastName"]);
+    $email = FormSanitizer::sanitizeFormString($_POST["email"]);
+
+    
+}
+
+if (isset($_POST["savePasswordButton"])) {
+    
+}
 ?>
 <div class="settingsContainer column">
 
